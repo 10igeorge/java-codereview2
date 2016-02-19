@@ -4,17 +4,17 @@
   <h4>Current Words:</h4>
   <ul>
   #foreach ($word in $words)
-    <li>$word.getWord()</li>
+    <li><a href="/$word.getId()">$word.getWord()</a></li>
   #end
   </ul>
-  <form action="/words" method="post">
+  <form action="/update" method="post">
     <label for="word">Enter another word here:</label><br>
     <input type="text" id="word" name="word"><br><br>
     <button id="create" type="submit" class="btn btn-info">Create Word</button>
   </form>
 #else
   <p>The dictionary is currently empty.</p>
-  <form action="/words" method="post">
+  <form action="/update" method="post">
     <label for="word">Get started by entering the first word:</label><br>
     <input type="text" id="word" name="word"><br><br>
     <button id="create" type="submit" class="btn btn-info">Create Word</button>

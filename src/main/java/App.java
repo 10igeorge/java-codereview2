@@ -17,7 +17,7 @@ public class App {
       return new ModelAndView (model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/words", (request, response) -> {
+    post("/update", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       ArrayList<Word> words = request.session().attribute("words");
       if (words == null){
@@ -31,6 +31,14 @@ public class App {
       model.put("word", word);
       model.put("template", "templates/success.vtl");
       return new ModelAndView (model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("word", word);
+      model.put("template", "templates/word-info.vtl");
+      return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }
 }
