@@ -37,6 +37,10 @@ public class AppTest extends FluentTest {
     fill("#word").with("Internet");
     submit(".btn");
     click("a", withText("Go back"));
+    fill("#word").with("Aardvark");
+    submit(".btn");
+    click("a", withText("Go back"));
     assertThat(pageSource()).contains("Internet");
+    assertThat(pageSource()).contains("Aardvark");
   }
 }

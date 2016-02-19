@@ -1,16 +1,22 @@
 <h1>User Dictionary</h1>
-<br>
-<h3>Current Words:</h3>
-<ul>
-#foreach ($word in $words)
-  <li>$word.getWord()</li>
-#end
-</ul>
-<br>
 
-<h4>Want to contribute to the User Dictionary?</h4>
-<form action="/words" method="post">
-  <label for="word">Enter a new word here:</label><br>
-  <input type="text" id="word" name="word" value="word"><br><br>
-  <button type="submit" class="btn btn-info">Create Word</button>
-</form>
+#if ($words)
+  <h4>Current Words:</h4>
+  <ul>
+  #foreach ($word in $words)
+    <li>$word.getWord()</li>
+  #end
+  </ul>
+  <form action="/words" method="post">
+    <label for="word">Enter another word here:</label><br>
+    <input type="text" id="word" name="word"><br><br>
+    <button type="submit" class="btn btn-info">Create Word</button>
+  </form>
+#else
+  <p>The dictionary is currently empty.</p>
+  <form action="/words" method="post">
+    <label for="word">Get started by entering the first word:</label><br>
+    <input type="text" id="word" name="word"><br><br>
+    <button type="submit" class="btn btn-info">Create Word</button>
+  </form>
+#end
