@@ -2,6 +2,9 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class WordTest {
+  
+  @Rule
+  public ClearRule clearRule = new ClearRule();
 
   @Test
   public void word_instantiatesCorrectly_true(){
@@ -32,5 +35,12 @@ public class WordTest {
   @Test
   public void find_returnsNullWhenNoWordFound_null(){
     assertTrue(Word.find(999) == null);
+  }
+
+  @Test
+  public void clear_emptiesWordsFromArrayList(){
+    Word newWord = new Word("Internet");
+    Word.clear();
+    assertEquals(Word.all().size(), 0);
   }
 }
