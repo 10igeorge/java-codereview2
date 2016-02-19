@@ -10,13 +10,13 @@
   <form action="/words" method="post">
     <label for="word">Enter another word here:</label><br>
     <input type="text" id="word" name="word"><br><br>
-    <button type="submit" class="btn btn-info">Create Word</button>
+    <button id="create" type="submit" class="btn btn-info">Create Word</button>
   </form>
 #else
   <p>The dictionary is currently empty.</p>
   <form action="/words" method="post">
     <label for="word">Get started by entering the first word:</label><br>
     <input type="text" id="word" name="word"><br><br>
-    <button type="submit" class="btn btn-info">Create Word</button>
+    <button id="create" type="submit" class="btn btn-info">Create Word</button>
   </form>
 #end

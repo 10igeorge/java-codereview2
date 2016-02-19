@@ -5,9 +5,16 @@ public class Definition{
   private String mDefinition;
   private int mId;
 
+  public Definition(String definition){
+    mDefinition = definition;
+  }
+
+  public String getDefinition(){
+    return mDefinition;
+  }
 
   public static void clear(){
     definitions.clear();
   }
-  
+
 }

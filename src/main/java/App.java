@@ -20,15 +20,12 @@ public class App {
     post("/words", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       ArrayList<Word> words = request.session().attribute("words");
-
       if (words == null){
         words = new ArrayList<Word>();
         request.session().attribute("words", words);
       }
-
       String word = request.queryParams("word");
       Word newWord = new Word(word);
-
       words.add(newWord);
 
       model.put("word", word);
