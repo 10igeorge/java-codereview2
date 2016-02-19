@@ -7,5 +7,8 @@ public class Word {
   public Word(String word){
     mWord = word;
   }
-  
+
+  public String getWord(){
+    return mWord;
+  }
 }
