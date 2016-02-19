@@ -28,6 +28,15 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#word").with("Internet");
     submit(".btn");
-    assertThat(pageSource()).contains("Your word has been saved");
+    assertThat(pageSource()).contains("Success!");
+  }
+
+  @Test
+  public void wordIsDisplayed(){
+    goTo("http://localhost:4567/");
+    fill("#word").with("Internet");
+    submit(".btn");
+    click("a", withText("Go back"));
+    assertThat(pageSource()).contains("Internet");
   }
 }

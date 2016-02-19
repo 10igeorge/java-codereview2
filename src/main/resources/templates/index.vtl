@@ -1,6 +1,11 @@
 <h1>User Dictionary</h1>
 <br>
 <h3>Current Words:</h3>
+<ul>
+#foreach ($word in $words)
+  <li>$word.getWord()</li>
+#end
+</ul>
 <br>
 
 <h4>Want to contribute to the User Dictionary?</h4>
