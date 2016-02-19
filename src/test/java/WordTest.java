@@ -23,9 +23,9 @@ public class WordTest {
     assertTrue(Word.all().contains(secondWord));
   }
 
-  // @Test
-  // public void getId_createsIdForEachWord(){
-  //   Word newWord = new Word("Internet");
-  //   assertEquals()
-  // }
+  @Test
+  public void getId_createsIdForEachWord(){
+    Word newWord = new Word("Internet");
+    assertEquals(Word.all().size(), newWord.getId());
+  }
 }

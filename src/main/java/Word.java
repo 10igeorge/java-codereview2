@@ -20,7 +20,7 @@ public class Word {
     return words;
   }
 
-  // public int getId(){
-  //   return mId;
-  // }
+  public int getId(){
+    return mId;
+  }
 }
