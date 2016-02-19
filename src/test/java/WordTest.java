@@ -28,4 +28,9 @@ public class WordTest {
     Word newWord = new Word("Internet");
     assertEquals(Word.all().size(), newWord.getId());
   }
+
+  @Test
+  public void find_returnsNullWhenNoWordFound_null(){
+    assertTrue(Word.find(999) == null);
+  }
 }

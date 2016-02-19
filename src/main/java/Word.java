@@ -23,4 +23,13 @@ public class Word {
   public int getId(){
     return mId;
   }
+
+  public static Word find(int id){
+    try {
+      return words.get(id - 1);
+    } catch (IndexOutOfBoundsException e){
+      return null;
+    }
+  }
+  
 }
