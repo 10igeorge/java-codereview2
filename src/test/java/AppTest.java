@@ -8,6 +8,8 @@ import static org.fluentlenium.core.filter.FilterConstructor.*;
 
 public class AppTest extends FluentTest {
   public WebDriver webDriver = new HtmlUnitDriver();
+
+  @Override
   public WebDriver getDefaultDriver() {
       return webDriver;
   }
@@ -21,11 +23,11 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("User Dictionary");
   }
 
-  // @Test
-  // public void isALeapYear() {
-  //   goTo("http://localhost:4567");
-  //   fill("#year").with("2004");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Correct response");
-  // }
+  @Test
+  public void wordIsCreated() {
+    goTo("http://localhost:4567/");
+    fill("#word").with("Internet");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your word has been saved");
+  }
 }
