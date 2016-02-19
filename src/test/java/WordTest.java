@@ -14,4 +14,18 @@ public class WordTest {
     Word newWord = new Word("Internet");
     assertEquals("Internet", newWord.getWord());
   }
+
+  @Test
+  public void all_returnsAllInstancesOfWord(){
+    Word firstWord = new Word("Internet");
+    Word secondWord = new Word("Aardvark");
+    assertTrue(Word.all().contains(firstWord));
+    assertTrue(Word.all().contains(secondWord));
+  }
+
+  // @Test
+  // public void getId_createsIdForEachWord(){
+  //   Word newWord = new Word("Internet");
+  //   assertEquals()
+  // }
 }
