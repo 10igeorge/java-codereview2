@@ -36,10 +36,10 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#word").with("Internet");
     submit("#create");
-    click("a", withText("Go back"));
+    click("a", withText("Home"));
     fill("#word").with("Aardvark");
     submit("#create");
-    click("a", withText("Go back"));
+    click("a", withText("Home"));
     assertThat(pageSource()).contains("Internet");
     assertThat(pageSource()).contains("Aardvark");
   }

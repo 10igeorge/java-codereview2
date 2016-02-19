@@ -1,8 +1,9 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class WordTest {
-  
+
   @Rule
   public ClearRule clearRule = new ClearRule();
 
@@ -31,6 +32,21 @@ public class WordTest {
     Word newWord = new Word("Internet");
     assertEquals(Word.all().size(), newWord.getId());
   }
+
+  @Test
+   public void getAllDefinitions_initiallyReturnsEmptyArrayList() {
+     Word newWord = new Word("Aardvark");
+     assertEquals(true, newWord.getAllDefinitions() instanceof ArrayList);
+   }
+
+  @Test
+  public void addDefinition_addsNewDefinitionToWord(){
+    Word newWord = new Word("Internet");
+    Definition newDef = new Definition("An addiction");
+    newWord.addDefinition(newDef);
+    assertEquals(true, newWord.getAllDefinitions().contains(newDef));
+  }
+
 
   @Test
   public void find_returnsNullWhenNoWordFound_null(){

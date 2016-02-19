@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Word {
   private static ArrayList<Word> words = new ArrayList<Word>();
+  private ArrayList<Definition> mDefinitions;
   private String mWord;
   private int mId;
 
@@ -10,6 +11,7 @@ public class Word {
     mWord = word;
     words.add(this);
     mId = words.size();
+    mDefinitions = new ArrayList<Definition>();
   }
 
   public String getWord(){
@@ -22,6 +24,14 @@ public class Word {
 
   public int getId(){
     return mId;
+  }
+
+  public ArrayList<Definition> getAllDefinitions(){
+    return mDefinitions;
+  }
+
+  public void addDefinition(Definition def){
+    mDefinitions.add(def);
   }
 
   public static Word find(int id){

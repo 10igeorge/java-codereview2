@@ -11,7 +11,7 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("words", request.session().attribute("words"));
+      model.put("words", Word.all());
 
       model.put("template", "templates/index.vtl");
       return new ModelAndView (model, layout);
@@ -36,9 +36,37 @@ public class App {
     get("/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Word word = Word.find(Integer.parseInt(request.params(":id")));
+
+      // model.put("definition", definition);
       model.put("word", word);
       model.put("template", "templates/word-info.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/:id/new-def", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.params(":id")));
+      // ArrayList<Definition> definitions = word.getAllDefinitions();
+      model.put("word", word);
+      model.put("template", "templates/new-def.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/update", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      ArrayList<Definition> definitions = request.session().attribute("definitions");
+      if (definitions == null){
+        definitions = new ArrayList<Definition>();
+        request.session().attribute("definitions", definitions);
+      }
+      String definition = request.queryParams("definition");
+      Definition newDef = new Definition(definition);
+      definitions.add(newDef);
+
+      // model.put("definition", definition);
+      model.put("template", "templates/success.vtl");
+      return new ModelAndView (model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }

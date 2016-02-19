@@ -7,7 +7,14 @@ public class DefinitionTest{
   public ClearRule clearRule = new ClearRule();
 
   @Test
+  public void definition_initializesCorrectly() {
+    Definition newDefinition = new Definition("A definition of an aardvark");
+    assertEquals(true, newDefinition instanceof Definition);
+  }
+
+  @Test
   public void getDefinition_returnsADefinition_true(){
-    Definition newDefinition = new Definition("A super cute and unique nocturnal burrowing mammal with long ears, a tubular snout, and extensible tounge used for eating small insects such as ants and termites.");
+    Definition newDefinition = new Definition("A definition of an aardvark");
+    assertEquals("A definition of an aardvark", newDefinition.getDefinition());
   }
 }

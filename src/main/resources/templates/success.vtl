@@ -1,5 +1,9 @@
 <h1>Success!</h1>
 
+#if($word)
 <p>The word "$word" has been added to the dictionary!</p>
+#else 
+<p>The dictionary has been updated with your new definition!</p>
+#end
 
-<p><a href="/">Go back</a> to add a definition for your newly created word.</p>
+<a href="/">Home</a>
