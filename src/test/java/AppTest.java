@@ -28,7 +28,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#word").with("Internet");
     submit("#create");
-    assertThat(pageSource()).contains("Success!");
+    assertThat(pageSource()).contains("Internet");
   }
 
   @Test
@@ -36,10 +36,8 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#word").with("Internet");
     submit("#create");
-    click("a", withText("Home"));
     fill("#word").with("Aardvark");
     submit("#create");
-    click("a", withText("Home"));
     assertThat(pageSource()).contains("Internet");
     assertThat(pageSource()).contains("Aardvark");
   }

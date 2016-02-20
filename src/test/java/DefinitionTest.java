@@ -20,8 +20,8 @@ public class DefinitionTest{
 
   @Test
   public void all_returnsAllDefinitionEntries() {
-    Definition firstDefinition = new Definition("A definition 1");
-    Definition secondDefinition = new Definition("A definition 2");
+    Definition firstDefinition = new Definition("A definition of an aardvark.");
+    Definition secondDefinition = new Definition("A definition of the Internet");
     assertTrue(Definition.all().contains(firstDefinition));
     assertTrue(Definition.all().contains(secondDefinition));
   }
