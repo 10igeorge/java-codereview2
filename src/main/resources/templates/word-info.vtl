@@ -2,7 +2,7 @@
 
 #if($definitions)
   #foreach ($definition in $definitions)
-    <p>$definition.getDefinition()<p><hr>
+    <p>$word.getAllDefinitions()<p><hr>
   #end
 #else
   <h4>This word has not been defined yet!</h4>
@@ -10,5 +10,5 @@
 
 $definitions
 <br>
-<p><a href="/$word.getId()/new-def">Click here</a> to add a new definition.</p>
+<p><a href="/definitions/$word.getId()/new-def">Click here</a> to add a new definition.</p>
 <a href="/">Home</a>
