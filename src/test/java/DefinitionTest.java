@@ -17,4 +17,12 @@ public class DefinitionTest{
     Definition newDefinition = new Definition("A definition of an aardvark");
     assertEquals("A definition of an aardvark", newDefinition.getDefinition());
   }
+
+  @Test
+  public void all_returnsAllDefinitionEntries() {
+    Definition firstDefinition = new Definition("A definition 1");
+    Definition secondDefinition = new Definition("A definition 2");
+    assertTrue(Definition.all().contains(firstDefinition));
+    assertTrue(Definition.all().contains(secondDefinition));
+  }
 }
