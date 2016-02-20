@@ -60,9 +60,10 @@ public class App {
       definitions = new ArrayList<Definition>();
       request.session().attribute("definitions", definitions);
     }
-    String userDef = request.queryParams("userDef");
-    Definition newDefinition = new Definition(userDef);
+    String definition = request.queryParams("definition");
+    Definition newDefinition = new Definition(definition);
     definitions.add(newDefinition);
+    model.put("definition", definition);
     model.put("definitions", definitions);
     model.put("word", word);
     model.put("template", "templates/word-info.vtl");

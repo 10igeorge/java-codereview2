@@ -1,14 +1,13 @@
 <h1>$word.getWord()</h1>
-
+<br>
 #if($definitions)
   #foreach ($definition in $definitions)
-    <p>$word.getAllDefinitions()<p><hr>
+    <li>$definition.getDefinition()</li><hr>
   #end
 #else
   <h4>This word has not been defined yet!</h4>
 #end
 
-$definitions
 <br>
 <p><a href="/definitions/$word.getId()/new-def">Click here</a> to add a new definition.</p>
 <a href="/">Home</a>
